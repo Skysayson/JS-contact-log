@@ -1,0 +1,24 @@
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    width: auto;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+table, th, td {
+    border: 1px solid black;
+    width: 40rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
