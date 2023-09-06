@@ -2,7 +2,7 @@
     const tableBody = document.querySelector('table tbody');
 
     //to break down json string into an object and assign to var
-    //this is an array of objects
+    //this of type objects
     let existingContacts = JSON.parse(localStorage.getItem('Contacts'));
 
     //if var is empty, meaning no existing contacts it becomes an empty array;
@@ -47,6 +47,14 @@ const addContact = () => {
         const newFirstName = prompt("Enter contact first name");
         const newEmail = prompt("Enter contact email");
         const newContact = prompt("Enter contact number");
+
+        if(isNaN(newContact)) {
+            window.alert("Contact # Invalid");
+            return;
+        } else if (newEmail.includes('@') === false ) {
+            window.alert("Invalid email");
+            return;
+        }
 
         if (
             newLastName !== null && newLastName !== '' &&
@@ -140,8 +148,6 @@ const updateContact = () => {
     tableUpdate(existingContacts);
 
 }
-
-
 
 tableUpdate(existingContacts);
 
