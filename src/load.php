@@ -2,7 +2,7 @@
 include 'db-connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $query = "SELECT lastName, firstName, email, contact FROM `contact-info`";
+    $query = "SELECT lastName, firstName, email, contact FROM `contact-info` ORDER BY lastName ASC";
     $result = $dbcon->query($query);
 
     if ($result) {

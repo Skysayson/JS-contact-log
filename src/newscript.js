@@ -46,14 +46,28 @@ const addContact = () => {
     const newLastName = prompt("Enter contact last name");
     const newFirstName = prompt("Enter contact first name");
     const newEmail = prompt("Enter contact email");
-    const newContact = prompt("Enter contact number");
+    let newContact = prompt("Enter contact number");
+    newContact = Number(newContact);
+    const emailMust = ["@gmail.com"];
+
+    let containDomain = false;
+
+    for(let domain of emailMust) {
+        if(newEmail.indexOf(domain) !== -1) {
+            containDomain = true;
+            break;
+        } else {
+            break;
+        }
+    }
 
     if (
         newLastName !== null && newLastName !== '' &&
         newFirstName !== null && newFirstName !== '' &&
-        newEmail !== null && newEmail !== '' &&
-        newContact !== null && newContact !== ''
+        newEmail !== null && newEmail !== '' 
+        && Number.isInteger(newContact) && containDomain === true
     ) {
+
         const newContactObject = {
             last_name: newLastName,
             first_name: newFirstName,
@@ -75,7 +89,7 @@ const addContact = () => {
             },
         });
     } else {
-        alert("Empty fields are NOT ALLOWED");
+        alert("INVALID INPUT, ONLY GMAIL IS ACCEPTED");
     }
 };
 
